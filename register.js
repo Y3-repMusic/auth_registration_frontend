@@ -1,6 +1,7 @@
 const button = document.querySelector(".btn");
 const login = document.querySelector(".login");
 const pass = document.querySelector(".pass");
+const url = "auth-registration-backend.vercel.app"
 // const savedUsers = [];
 
 button.addEventListener("click", function (event) {
@@ -11,7 +12,7 @@ button.addEventListener("click", function (event) {
     password: pass.value,
     date: new Date().toLocaleString(),
   };
-  const response = fetch("http://localhost:3000/register", {
+  const response = fetch(`https://${url}/register`, { 
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +40,7 @@ button.addEventListener("click", function (event) {
   // window.location.href = "index_two.html"
 });
 
-fetch("http://localhost:3000/users")
+fetch(`https://${url}/users`)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
@@ -47,3 +48,4 @@ fetch("http://localhost:3000/users")
 
 //admin
 //admin пароль от sql
+//authregistrationbackend-production.up.railway.app
