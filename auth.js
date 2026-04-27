@@ -2,12 +2,13 @@ const UserLogin = document.querySelector("#username");
 const UserPass = document.querySelector("#password");
 const button_two = document.querySelector(".btn_two");
 const savedUsers = [];
+const url = "auth-registration-backend.vercel.app"
 
 button_two.addEventListener("click", function (event) {
   event.preventDefault();
   console.log(UserLogin.value.length,UserPass.value.length)
   if (UserLogin.value.length > 0 && UserPass.value.length > 0) {
-    const result = fetch("http://localhost:3000/autologin", {
+    const result = fetch(`https://${url}/autologin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
